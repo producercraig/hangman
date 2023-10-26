@@ -12,6 +12,7 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 ## File Structure
 - hangman
     - hangman_Template.py
-    - milestone_2.py
+    - milestone_2.py // Handles random word generation
+    - milestone_3.py // Handles user input and validation
 - .gitignore
 - README.md
