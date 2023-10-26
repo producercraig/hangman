@@ -7,12 +7,13 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 
 ## Installation Instructions
 - Download or clone the project
-- Run tbc.py
+- Run milestone_4.py
 
 ## File Structure
 - hangman
     - hangman_Template.py
-    - milestone_2.py // Handles random word generation
-    - milestone_3.py // Handles user input and validation
+    - milestone_2.py // Test file handling random word generation
+    - milestone_3.py // Test file handling user input and validation
+    - milestone_4.py // Contains the Hangman class used to run the game
 - .gitignore
 - README.md
