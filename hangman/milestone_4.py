@@ -5,9 +5,9 @@ class Hangman:
     def __init__(self, word_list: list, num_lives = 5):
         self.word_list = word_list
         self.word = self._get_random_word()
-        self.word_guessed = ["_" for character in self.word]
+        self.word_guessed = ["_" for character in self.word] #List of underscores representing unguessed characters
         self.num_letters = 0 #The number of UNIQUE letters in the word that have not been guessed yet
-        self.num_lives = num_lives
+        self._num_lives = num_lives #Number of incorrect guesses allowed
         self.list_of_guesses = [] #A list of current guesses
     
     def ask_for_input(self):
@@ -20,6 +20,7 @@ class Hangman:
                 print("You already tried that letter!")
             else:
                 if self._check_guess(guess):
+                    print(self.word_guessed)
                     break
                 self.list_of_guesses.append(guess)  
                 
@@ -45,16 +46,22 @@ class Hangman:
         guess = guess.lower()
 
         if guess in self.word:
-            i = 0
-            for character in self.word:
-                self.word_guessed[i] = character
+            self._update_word_guessed(guess)
             self.num_letters -= 1
             return True
         else:
-            self.num_lives -= 1
+            self._num_lives -= 1
             print(f"Sorry. {guess} is not in the word.")
             print(f"You have {self.num_lives} left.")
             return False
+        
+    def _update_word_guessed(self, guess):
+        '''Updates the word_guessed list replacing the relevant underscores with the correctly guessed character.'''
+        i = 0
+        for character in self.word:
+            if guess == self.word[i]:
+                self.word_guessed[i] = character
+            i += 1
 
             
    
